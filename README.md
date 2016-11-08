@@ -1,10 +1,14 @@
 # PlugContrib
 
-**TODO: Add description**
+A collection of useful plugs for your plug/phoenix based web apps.
+
+## Current Plugs
+
+  1. **PlugContrib.Gzip** to gzip your responses
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+The package can be installed as:
 
   1. Add `plug_contrib` to your list of dependencies in `mix.exs`:
 

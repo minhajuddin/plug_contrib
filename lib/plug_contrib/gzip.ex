@@ -14,7 +14,7 @@ defmodule PlugContrib.Gzip do
 
   def call(conn, _opts) do
     cond do
-      accepts_gzip?(conn) -> gzip(conn)
+      accepts_gzip?(conn) -> register_before_send(conn, &gzip/1)
       true                -> conn
     end
   end
@@ -27,9 +27,7 @@ defmodule PlugContrib.Gzip do
   end
 
   defp gzip(conn) do
-    register_before_send(conn, fn conn ->
-      conn = put_resp_header(conn, "Content-Encoding", "gzip")
-      %{conn | resp_body: :zlib.gzip(conn.resp_body)}
-    end)
+    conn = put_resp_header(conn, "Content-Encoding", "gzip")
+    %{conn | resp_body: :zlib.gzip(conn.resp_body)}
   end
 end
