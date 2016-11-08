@@ -3,7 +3,7 @@ defmodule PlugContrib.Mixfile do
 
   def project do
     [app: :plug_contrib,
-     version: "0.1.1",
+     version: "0.1.2",
      elixir: "~> 1.3",
      package: package,
      description: description,

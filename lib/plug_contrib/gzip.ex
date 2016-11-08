@@ -19,15 +19,18 @@ defmodule PlugContrib.Gzip do
     end
   end
 
+  @gzip_encoding "gzip"
   defp accepts_gzip?(conn) do
-    accept_encoding = get_req_header(conn, "accept-encoding")
-                      |> Enum.join(",")
-                      |> String.downcase
-    String.contains?(accept_encoding, "gzip")
+    conn
+    |> get_req_header("accept-encoding")
+    |> Enum.join(",")
+    |> String.downcase
+    |> String.contains?(@gzip_encoding)
   end
 
   defp gzip(conn) do
-    conn = put_resp_header(conn, "Content-Encoding", "gzip")
-    %{conn | resp_body: :zlib.gzip(conn.resp_body)}
+    conn
+    |> put_resp_header("content-encoding", @gzip_encoding)
+    |> Map.put(:resp_body, :zlib.gzip(conn.resp_body))
   end
 end
