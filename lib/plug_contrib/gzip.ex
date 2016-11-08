@@ -13,9 +13,10 @@ defmodule PlugContrib.Gzip do
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    cond do
-      accepts_gzip?(conn) -> register_before_send(conn, &gzip/1)
-      true                -> conn
+    if accepts_gzip?(conn) do
+      register_before_send(conn, &gzip/1)
+    else
+      conn
     end
   end
 

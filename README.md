@@ -1,4 +1,7 @@
 # PlugContrib
+[![Travis](https://img.shields.io/travis/minhajuddin/plug_contrib.svg?style=flat-square)](https://travis-ci.org/minhajuddin/plug_contrib)
+[![Hex.pm](https://img.shields.io/hexpm/v/plug_contrib.svg?style=flat-square)](https://hex.pm/packages/plug_contrib)
+[![Hex.pm](https://img.shields.io/hexpm/dt/plug_contrib.svg?style=flat-square)](https://hex.pm/packages/plug_contrib)
 
 A collection of useful plugs for your plug/phoenix based web apps.
 
